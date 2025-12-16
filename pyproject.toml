@@ -1,0 +1,36 @@
+[project]
+name = "masim-analysis"
+version = "0.2.0"
+description = "Analysis and calibration tools for the Temple malaria simulation model maintained by the Boni Lab"
+readme = "README.md"
+authors = [
+    { name = "James Brodovsky", email = "jbrodovsky@temple.edu" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "jupyter",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "ruamel-yaml>=0.18.10",
+    "scipy>=1.13.1",
+]
+
+[project.scripts]
+calibrate = "masim_analysis.calibrate:main"
+commands = "masim_analysis.commands:main"
+masim = "masim_analysis.interactive:main"
+validate = "masim_analysis.validate:main"
+
+[project.optional-dependencies]
+interactive = ["rich>=13.0.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatchling]
+include = ["templates"]
+
+[tool.ruff]
+line-length = 120
